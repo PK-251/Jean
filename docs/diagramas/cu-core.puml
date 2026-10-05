@@ -1,0 +1,37 @@
+@startuml cu-core
+!pragma layout smetana
+' Casos de uso del proceso core: compra de entradas
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam usecase {
+  BackgroundColor #FDF3E4
+  BorderColor #1C1620
+}
+actor "Cliente" as cliente
+actor "Invitado" as invitado
+cliente <|-- invitado
+rectangle "TicketCine – Compra de entradas" {
+  usecase "Consultar cartelera" as UC1
+  usecase "Seleccionar función\ny cantidad" as UC2
+  usecase "Confirmar compra" as UC3
+  usecase "Validar aforo\ndisponible" as UC4
+  usecase "Calcular importe" as UC5
+  usecase "Generar tickets con\nturno correlativo" as UC6
+  usecase "Iniciar sesión" as UC7
+  usecase "Seguir como invitado" as UC8
+  usecase "Consultar mis tickets" as UC9
+  usecase "Ver comprobante\nde invitado" as UC10
+}
+cliente --> UC1
+cliente --> UC2
+cliente --> UC3
+cliente --> UC9
+invitado --> UC10
+UC2 ..> UC4 : <<include>>
+UC3 ..> UC4 : <<include>>
+UC3 ..> UC5 : <<include>>
+UC3 ..> UC6 : <<include>>
+UC7 ..> UC3 : <<extend>>
+UC8 ..> UC3 : <<extend>>
+UC9 ..> UC7 : <<include>>
+@enduml

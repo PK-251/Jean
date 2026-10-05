@@ -106,4 +106,4 @@ Las pruebas usan bases H2 en memoria independientes; no alteran la base de la ap
 
 La carpeta `mvp/` contiene un prototipo navegable de la parte pública (landing, cartelera, compra y mis tickets) hecho solo con HTML y CSS, sin JavaScript. Ábrelo con doble clic en `mvp/index.html` o publícalo en Vercel: importa el repositorio en vercel.com, elige el preset **Other** y pulsa **Deploy**; `vercel.json` publica la carpeta `mvp/` sin compilar nada.
 
-La carpeta `docs/` contiene el informe completo en Word (`Ingenieria_Web_TicketCine.docx`, secciones 1 a 15), las secciones nuevas en `secciones-faltantes.md` y las capturas en `docs/img/`.
+La carpeta `docs/` contiene el informe completo según la estructura oficial del curso (`Ingenieria_Web_TicketCine.docx` y su versión PDF). Se regenera con `python3 docs/generar_informe.py` (requiere `python-docx` y `pillow`). Los diagramas ER, de casos de uso y de secuencia están escritos en PlantUML en `docs/diagramas/`; las imágenes y capturas están en `docs/img/`, y `secciones-faltantes.md` contiene el texto de los anexos (landing, storyboard, MVP y técnicas).

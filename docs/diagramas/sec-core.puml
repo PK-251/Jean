@@ -1,0 +1,53 @@
+@startuml sec-core
+' Secuencia del proceso core: confirmar la compra de entradas (POST /comprar)
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam sequenceMessageAlign left
+autonumber
+actor Cliente
+participant "Navegador\n(confirmar-compra.jsp)" as Vista
+participant "CarteleraController" as C
+participant "CompraService" as S
+participant "CarteleraRepository" as RC
+participant "TicketRepository" as RT
+database "H2" as BD
+
+Cliente -> Vista : Pulsa "Confirmar compra"
+Vista -> C : POST /comprar (funcion, cantidad, compra, csrf)
+C -> C : Validar token CSRF y sesión\n(cliente o invitado)
+C -> S : compraExiste(compra, usuario, invitado, funcion)
+S -> RT : contarCompra(...)
+RT -> BD : SELECT COUNT(*) FROM compras
+BD --> RT : 0
+RT --> S : 0
+S --> C : false
+C -> S : registrarCompra(compra, usuario, invitado, funcion, cantidad)
+activate S
+note right of S : @Transactional\n(todo o nada)
+S -> RC : buscarFuncionDisponibleBloqueada(funcion)
+RC -> BD : SELECT ... FOR UPDATE
+BD --> RC : función + aforo + precio
+RC --> S : datos de la función
+S -> RT : listarPorFuncion(funcion)
+RT -> BD : SELECT turno, activo FROM tickets
+BD --> RT : tickets vendidos
+RT --> S : ocupación y último turno
+S -> S : validarCantidad(cantidad, aforo - ocupación)
+alt Hay cupos suficientes
+  S -> S : total = precio × cantidad
+  S -> RT : insertarCompra(compra, ..., total)
+  RT -> BD : INSERT INTO compras
+  loop por cada entrada
+    S -> RT : insertarTicket(..., turno = último + i + 1)
+    RT -> BD : INSERT INTO tickets
+  end
+  S --> C : compra registrada (COMMIT)
+  C --> Vista : redirect:/mis-tickets?compra=... (o /compra?codigo=... para invitado)
+  Vista --> Cliente : Tickets con número de turno
+else Aforo insuficiente
+  S --> C : IllegalArgumentException (ROLLBACK)
+  C --> Vista : sala.jsp con mensaje\n"No hay suficientes entradas disponibles"
+  Vista --> Cliente : Elige otra cantidad o función
+end
+deactivate S
+@enduml

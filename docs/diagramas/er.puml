@@ -1,0 +1,97 @@
+@startuml er
+!pragma layout smetana
+' Diagrama entidad-relación de TicketCine (fuente: src/main/resources/schema.sql)
+hide circle
+skinparam linetype ortho
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam class {
+  BackgroundColor #FFFFFF
+  BorderColor #1C1620
+  HeaderBackgroundColor #F6E3C3
+}
+
+entity "usuarios" as usuarios {
+  * id : BIGINT <<PK>>
+  --
+  * nombre : VARCHAR(100)
+  * correo : VARCHAR(254) <<UNIQUE>>
+  * clave : VARCHAR(200)
+  * rol : VARCHAR(10)  (ADMIN | USER)
+  * activo : BOOLEAN
+}
+
+entity "generos" as generos {
+  * id : INT <<PK>>
+  --
+  * nombre : VARCHAR(80) <<UNIQUE>>
+  * activo : BOOLEAN
+}
+
+entity "peliculas" as peliculas {
+  * id : INT <<PK>>
+  --
+  * genero_id : INT <<FK>>
+  * nombre : VARCHAR(150)
+  * minutos : INT  (> 0)
+  * clasificacion : VARCHAR(10)
+  * sinopsis : VARCHAR(500)
+  * estilo : VARCHAR(30)
+  * poster : VARCHAR(80)
+  * subtitulo : VARCHAR(80)
+  * activo : BOOLEAN
+}
+
+entity "salas" as salas {
+  * id : INT <<PK>>
+  --
+  * nombre : VARCHAR(40)
+  * aforo : INT  (> 0)
+  * activo : BOOLEAN
+}
+
+entity "funciones" as funciones {
+  * id : INT <<PK>>
+  --
+  * pelicula_id : INT <<FK>>
+  * sala_id : INT <<FK>>
+  * fecha : DATE
+  * hora : TIME
+  * precio : DECIMAL(10,2)  (>= 0)
+  * activo : BOOLEAN
+}
+
+entity "compras" as compras {
+  * id : VARCHAR(36) <<PK>>
+  --
+  usuario_id : BIGINT <<FK>> (nulo = invitado)
+  * funcion_id : INT <<FK>>
+  * cantidad : INT  (> 0)
+  * total : DECIMAL(10,2)
+  * fecha : TIMESTAMP
+  invitado : VARCHAR(36)
+}
+
+entity "tickets" as tickets {
+  * id : BIGINT <<PK>>
+  --
+  usuario_id : BIGINT <<FK>>
+  * funcion_id : INT <<FK>>
+  compra_id : VARCHAR(36) <<FK>>
+  * turno : INT  (> 0)
+  * precio : DECIMAL(10,2)
+  * fecha_compra : DATE
+  * activo : BOOLEAN
+  ..
+  UNIQUE (funcion_id, turno)
+}
+
+generos ||--o{ peliculas : clasifica
+peliculas ||--o{ funciones : se proyecta en
+salas ||--o{ funciones : alberga
+funciones ||--o{ compras : registra
+funciones ||--o{ tickets : emite
+compras ||--|{ tickets : contiene
+usuarios |o--o{ compras : realiza
+usuarios |o--o{ tickets : posee
+@enduml

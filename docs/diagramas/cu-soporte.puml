@@ -1,0 +1,41 @@
+@startuml cu-soporte
+!pragma layout smetana
+' Casos de uso de los procesos de soporte: acceso y gestión del catálogo
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam usecase {
+  BackgroundColor #FDF3E4
+  BorderColor #1C1620
+}
+actor "Cliente" as cliente
+actor "Administrador" as admin
+rectangle "TicketCine – Soporte" {
+  usecase "Registrarse" as S1
+  usecase "Iniciar sesión\n(validar credenciales y rol)" as S2
+  usecase "Cerrar sesión" as S3
+  usecase "Gestionar películas" as S4
+  usecase "Gestionar géneros" as S5
+  usecase "Gestionar salas" as S6
+  usecase "Gestionar funciones" as S7
+  usecase "Gestionar usuarios" as S8
+  usecase "Consultar dashboard\nde métricas" as S9
+  usecase "Desactivar registro\n(baja lógica)" as S10
+}
+cliente --> S1
+cliente --> S2
+cliente --> S3
+admin --> S2
+admin --> S3
+admin --> S4
+admin --> S5
+admin --> S6
+admin --> S7
+admin --> S8
+admin --> S9
+S4 ..> S2 : <<include>>
+S9 ..> S2 : <<include>>
+S10 ..> S4 : <<extend>>
+S10 ..> S5 : <<extend>>
+S10 ..> S6 : <<extend>>
+S10 ..> S8 : <<extend>>
+@enduml

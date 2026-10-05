@@ -1,0 +1,38 @@
+@startuml sec-soporte
+' Secuencia del proceso de soporte: iniciar sesión con validación de credenciales y rol
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam sequenceMessageAlign left
+autonumber
+actor Usuario
+participant "Navegador\n(login.jsp / admin-login.jsp)" as Vista
+participant "AuthController" as C
+participant "AuthService" as S
+participant "UsuarioRepository" as R
+database "H2" as BD
+
+Usuario -> Vista : Ingresa correo y contraseña
+Vista -> C : POST /login o /admin/login (email, password, csrf)
+C -> C : Validar token CSRF
+C -> S : validarLogin(correo, clave)
+S --> C : errores de formato (vacío si es válido)
+C -> S : autenticar(correo, clave)
+S -> R : buscarActivoPorCorreo(correo)
+R -> BD : SELECT id, nombre, clave, rol\nFROM usuarios WHERE correo = ? AND activo
+BD --> R : usuario
+R --> S : usuario
+S -> S : Recalcular PBKDF2 con la sal\ny comparar resúmenes
+alt Credenciales válidas
+  S --> C : usuario (id, nombre, rol)
+  alt El rol coincide con el acceso
+    C -> C : changeSessionId(), guardar usuario,\nrol y nuevo token CSRF en la sesión
+    C --> Vista : redirect:/admin (ADMIN)\no redirect:/cartelera, /mis-tickets, /confirmar-compra (USER)
+  else Rol de otro acceso
+    C --> Vista : 403 "Esta cuenta no corresponde a este acceso"
+  end
+else Credenciales incorrectas o cuenta inactiva
+  S --> C : null
+  C --> Vista : "Correo o contraseña incorrectos"
+end
+Vista --> Usuario : Resultado del ingreso
+@enduml
