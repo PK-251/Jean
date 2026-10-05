@@ -1,0 +1,37 @@
+:root{--bg:#ffffff;--panel:#ffffff;--field:#f6f4f1;--accent:#e8a33d;--accent-text:#9a5d08;--velvet:#c24e4e;--text:#1c1620;--muted:#6b6168;--line:rgba(28,22,32,.14)}
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:Inter,Arial,sans-serif;margin:0;min-height:100vh}
+.sidebar{background:#ffffff;border-right:1px solid var(--line);display:flex;flex-direction:column;height:100vh;padding:26px 18px;position:fixed;width:230px}
+.admin-brand{align-items:center;color:var(--text);display:flex;gap:10px;padding:0 10px 28px;text-decoration:none}
+.brand-mark{align-items:center;background:var(--velvet);border-radius:5px;display:flex;font-size:.72rem;font-weight:700;height:38px;justify-content:center;width:40px}
+.admin-brand strong{display:block;font-family:"Bebas Neue",sans-serif;font-size:1.45rem;font-weight:400;letter-spacing:.04em;line-height:.9}
+.admin-brand small{color:var(--muted);display:block;font-size:.58rem;letter-spacing:.1em;margin-top:5px;text-transform:uppercase}
+.sidebar nav{display:grid;gap:5px}
+.sidebar nav a,.back-link{border-radius:8px;color:var(--muted);font-size:.88rem;font-weight:500;padding:11px 13px;text-decoration:none}
+.sidebar nav a:hover,.sidebar nav a.active{background:rgba(232,163,61,.1);color:var(--text)}
+.sidebar nav a.active{box-shadow:inset 3px 0 0 var(--accent)}
+.back-link{border:1px solid var(--line);margin-top:auto;text-align:center}
+.back-link:hover{border-color:var(--accent);color:var(--accent-text)}
+.admin-main{margin-left:230px;padding:0 38px 70px}
+.admin-header{align-items:center;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;margin-bottom:34px;min-height:98px}
+.admin-header p,.section-title p{color:var(--accent-text);font-size:.7rem;font-weight:700;letter-spacing:.12em;margin:0 0 5px;text-transform:uppercase}
+.admin-header h1{font-family:"Bebas Neue",sans-serif;font-size:2.4rem;font-weight:400;line-height:1;margin:0}
+.admin-user{align-items:center;display:flex;gap:10px}
+.admin-user>span{align-items:center;background:var(--velvet);border-radius:50%;display:flex;font-weight:700;height:38px;justify-content:center;width:38px}
+.admin-user strong,.admin-user small{display:block}.admin-user strong{font-size:.82rem}.admin-user small{color:var(--muted);font-size:.7rem;margin-top:3px}
+.admin-user{margin-left:auto}.admin-logout{margin-left:14px}.admin-logout button{cursor:pointer}
+.admin-section{margin-bottom:48px;scroll-margin-top:24px}
+.section-title{align-items:end;display:flex;justify-content:space-between;margin-bottom:18px}
+.section-title h2{font-size:1.35rem;margin:0}.section-title>span{color:var(--muted);font-size:.72rem}
+.section-title button,.catalog-section>button{background:var(--accent);border:0;border-radius:7px;color:#241505;font:inherit;font-size:.78rem;font-weight:700;padding:10px 13px}
+.metrics-grid{display:grid;gap:14px;grid-template-columns:repeat(5,minmax(0,1fr))}
+.metrics-grid article,.chart-card,.catalog-section{background:var(--panel);border:1px solid var(--line);border-radius:13px}
+.metrics-grid article{padding:18px}.metrics-grid small,.metrics-grid span{color:var(--muted);display:block;font-size:.7rem}.metrics-grid strong{display:block;font-size:1.35rem;margin:13px 0 7px}
+.charts-grid{display:grid;gap:14px;grid-template-columns:repeat(6,minmax(0,1fr));margin-top:14px}.chart-card{grid-column:span 3;padding:20px}.chart-card h3{font-size:.86rem;margin:0 0 18px}.compact-chart{grid-column:span 2}.compact-chart>strong{color:var(--accent-text);font-size:1.7rem}.compact-chart>p{color:var(--muted);font-size:.74rem;margin:8px 0 0}
+.bar-chart{align-items:end;border-bottom:1px solid var(--line);display:flex;gap:9px;height:145px}.bar-chart span{background:linear-gradient(var(--accent),#8a651f);border-radius:5px 5px 0 0;height:var(--value);position:relative;width:100%}.bar-chart b{bottom:-24px;color:var(--muted);font-size:.62rem;font-weight:500;left:50%;position:absolute;transform:translateX(-50%)}
+.progress-list{display:grid;gap:14px}.progress-list p{align-items:center;display:grid;gap:10px;grid-template-columns:65px 1fr 30px;margin:0}.progress-list span,.progress-list strong{color:var(--muted);font-size:.68rem}.progress-list b{background:linear-gradient(90deg,var(--velvet) var(--value),var(--field) var(--value));border-radius:9px;height:8px}
+.catalog-section{padding:22px}.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%}th{color:var(--muted);font-size:.68rem;letter-spacing:.07em;text-align:left;text-transform:uppercase}th,td{border-bottom:1px solid var(--line);padding:13px 10px}td{font-size:.79rem}.status{border-radius:20px;font-size:.65rem;font-weight:600;padding:5px 8px}.active-status{background:rgba(91,139,85,.18);color:#3f7a38}.table-action{background:transparent;border:1px solid var(--line);border-radius:5px;color:var(--text);font:inherit;font-size:.68rem;margin-right:5px;padding:6px 8px}.table-action.danger{color:#b43c3c}
+.simple-list{display:grid;gap:9px}.simple-list article{align-items:center;background:var(--field);border-radius:8px;display:flex;justify-content:space-between;padding:13px}.simple-list strong,.simple-list span{display:block}.simple-list strong{font-size:.84rem}.simple-list span{color:var(--muted);font-size:.68rem;margin-top:4px}.simple-list button,.room-grid button{background:transparent;border:1px solid var(--line);border-radius:6px;color:var(--text);font:inherit;font-size:.7rem;padding:7px 10px}
+.room-grid{display:grid;gap:12px;grid-template-columns:repeat(3,1fr)}.room-grid article{background:var(--field);border-radius:9px;padding:18px}.room-grid span,.room-grid small{color:var(--muted);display:block;font-size:.72rem}.room-grid strong{display:block;font-size:2rem;margin:13px 0 3px}.room-grid button{margin-top:16px;width:100%}
+@media(max-width:1050px){.metrics-grid{grid-template-columns:repeat(2,1fr)}.metrics-grid article:last-child{grid-column:span 2}.charts-grid{grid-template-columns:repeat(2,1fr)}.chart-card,.compact-chart{grid-column:span 1}}
+@media(max-width:720px){.sidebar{height:auto;position:static;width:100%}.sidebar nav{display:flex;overflow-x:auto}.sidebar nav a{white-space:nowrap}.back-link{margin-top:18px}.admin-main{margin-left:0;padding:0 18px 50px}.admin-header{align-items:start;padding:22px 0}.admin-user div{display:none}.metrics-grid,.charts-grid,.room-grid{grid-template-columns:1fr}.metrics-grid article:last-child,.chart-card,.compact-chart{grid-column:auto}.section-title{align-items:start;gap:14px}.section-title>span{display:none}}

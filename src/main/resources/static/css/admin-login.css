@@ -1,0 +1,8 @@
+body.admin-login-page{align-items:center;justify-content:center;padding:40px 20px;background:var(--bg-deep)}
+.admin-login-card{background:var(--bg-panel);border:1px solid var(--border-subtle);border-radius:16px;width:100%;max-width:410px;padding:32px}
+.admin-login-card .logo-menu-button{width:max-content;padding:0;margin-bottom:34px}
+.admin-eyebrow{color:var(--accent-text);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.admin-login-card h1{font-family:'Bebas Neue',sans-serif;font-size:38px;font-weight:400;margin:6px 0}
+.admin-description{color:var(--text-muted);font-size:14px;line-height:1.6;margin:0 0 28px}
+.admin-message{border-left:3px solid var(--velvet);color:var(--text-primary);font-size:13px;line-height:1.5;padding:10px 12px}
+.admin-return{text-align:center;font-size:13px;margin:24px 0 0}

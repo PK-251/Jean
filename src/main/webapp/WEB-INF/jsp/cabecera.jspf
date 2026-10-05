@@ -1,0 +1,24 @@
+<%@ page pageEncoding="UTF-8" %>
+<header class="site-header">
+    <a class="site-brand" href="${pageContext.request.contextPath}/cartelera" aria-label="Ir a la cartelera de Cine Amazonas">
+        <span class="brand-ticket">CA</span>
+        <span><strong>Cine Amazonas</strong><small>Iquitos</small></span>
+    </a>
+    <nav class="main-nav" aria-label="Navegación principal">
+        <a class="${seccion eq 'cartelera' ? 'active' : ''}" href="${pageContext.request.contextPath}/cartelera">Cartelera</a>
+        <a class="${seccion eq 'publicidad' ? 'active' : ''}" href="${pageContext.request.contextPath}/publicidad">Promociones</a>
+        <c:if test="${sessionScope.rol eq 'USER'}">
+            <a class="${seccion eq 'tickets' ? 'active' : ''}" href="${pageContext.request.contextPath}/mis-tickets">Mis tickets</a>
+        </c:if>
+        <a class="${seccion eq 'contacto' ? 'active' : ''}" href="${pageContext.request.contextPath}/contacto">Contacto</a>
+    </nav>
+    <c:choose>
+        <c:when test="${not empty sessionScope.usuarioId}">
+            <form class="session-menu" action="${pageContext.request.contextPath}/salir" method="post">
+                <input type="hidden" name="csrf" value="${sessionScope.csrf}">
+                <button class="login-link" type="submit">Cerrar sesión</button>
+            </form>
+        </c:when>
+        <c:otherwise><a class="login-link" href="${pageContext.request.contextPath}/login?destino=${empty destinoLogin ? 'cartelera' : destinoLogin}">Iniciar sesión</a></c:otherwise>
+    </c:choose>
+</header>

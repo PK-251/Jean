@@ -1,0 +1,23 @@
+.seats-page{max-width:760px}
+.back-to-movies{color:var(--text-muted);display:inline-block;font-size:.85rem;margin-bottom:30px;text-decoration:none}
+.back-to-movies:hover{color:var(--accent-text)}
+.seats-page h1{font-family:"Archivo Black",sans-serif;font-size:clamp(1.7rem,4vw,2.5rem);letter-spacing:-.04em;margin:8px 0 28px}
+.function-summary{align-items:center;display:flex;gap:20px;justify-content:space-between;margin-bottom:22px}
+.function-summary h2{font-size:1.2rem;margin:0 0 8px}
+.function-summary p{color:var(--text-muted);font-size:.86rem;margin:0}
+.seat-price{color:var(--accent-text);font-size:1.35rem;font-weight:700;white-space:nowrap}
+.seat-price small{color:var(--text-muted);display:block;font-size:.7rem;font-weight:400;margin-top:3px;text-align:right}
+.seat-room{background:var(--bg-panel);border:1px solid var(--border-subtle);border-radius:16px;padding:30px}
+.seat-room p{line-height:1.6;margin:0 0 12px}
+.seat-room p:last-child{margin-bottom:0}
+.ticket-field{display:grid;gap:8px;margin-bottom:18px}
+.ticket-field label{font-size:.85rem;font-weight:700}
+.ticket-field select{background:var(--bg-field);border:1px solid var(--border-subtle);border-radius:8px;color:var(--text-primary);font:inherit;max-width:220px;padding:11px 12px}
+.ticket-field select:focus{border-color:var(--accent);outline:1px solid var(--accent)}
+.ticket-note{background:var(--bg-field);border-radius:10px;color:var(--text-muted);font-size:.84rem;line-height:1.6;padding:14px 16px}
+.purchase-bar{align-items:center;display:flex;gap:24px;justify-content:space-between;margin-top:24px}
+.purchase-bar p{margin:0}.purchase-bar strong{display:block;font-size:.88rem}.purchase-bar span{color:var(--text-muted);display:block;font-size:.78rem;line-height:1.6;margin-top:6px;max-width:55ch}
+.confirm-purchase{background:var(--accent);border:0;border-radius:8px;color:#241505;cursor:pointer;font:inherit;font-size:.86rem;font-weight:700;padding:14px 24px;white-space:nowrap}
+.confirm-purchase:hover{background:var(--accent-hover)}
+.seat-alert{background:var(--bg-panel);border-left:3px solid var(--velvet);color:var(--text-primary);font-size:.88rem;line-height:1.6;padding:14px 18px}
+@media(max-width:650px){.seat-room{padding:20px 14px}.purchase-bar{align-items:stretch;flex-direction:column}.function-summary{align-items:flex-start}.seat-price{font-size:1rem}.function-summary h2{font-size:1rem}.seats-page{padding-top:30px}}
