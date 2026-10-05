@@ -92,7 +92,7 @@ Una función agotada (Spider-Man, 8:00 PM) no tiene página de compra y su botó
 3. *Framework Preset:* **Other**. Vercel lee `vercel.json` (`outputDirectory: "mvp"`). Pulsar **Deploy**.
 4. Copiar la URL pública (por ejemplo `https://ticketcine.vercel.app`) en el informe.
 
-Enlace del MVP: **(pegar aquí la URL de Vercel)**
+Enlace del MVP: **https://__________.vercel.app**
 
 **Capturas de la aplicación completa (Spring Boot + JSP + H2)**
 
@@ -162,8 +162,6 @@ Se propone **Scrum** (marco ágil) combinado con **prototipado evolutivo**, porq
 | Scrum Master | Arroyo Tello Geraldo Gerson (facilita las reuniones y elimina impedimentos) |
 | Equipo de desarrollo | Quispe Meza Renzo, Zamudio Benito Dayaneira Judith y Pacheco Gaspar Jean Brandon |
 
-*(Ajustar la asignación de roles según la organización real del equipo.)*
-
 **Eventos:** sprints de 2 semanas; *Sprint Planning* al inicio, *Daily* breve (presencial o por WhatsApp), *Sprint Review* con demostración al docente y *Retrospectiva*.
 
 **Artefactos:** Product Backlog (las 25 funcionalidades como historias de usuario), Sprint Backlog en un tablero Kanban (Por hacer / En curso / Hecho) y el incremento funcionando al final de cada sprint.
@@ -189,9 +187,3 @@ Se propone **Scrum** (marco ágil) combinado con **prototipado evolutivo**, porq
 4. **Arquitectura → calidad.** La arquitectura en capas Controller → Service → Repository separa responsabilidades, permite probar cada parte (32 pruebas automatizadas) y garantiza la integridad de las ventas con transacciones y restricciones en la base de datos.
 5. **Metodología → entrega.** Scrum con prototipado incremental permite entregar valor en cada sprint, incorporar la retroalimentación del docente y coordinar al equipo.
 6. **Trabajo futuro.** Integrar una pasarela de pago, completar las acciones de crear/editar/desactivar del panel, convertir en reales las métricas de series de tiempo y desplegar la aplicación Spring Boot en un servicio en la nube con una base de datos administrada.
-
-## Correcciones sugeridas al informe actual
-
-- **Sección 6:** dice "vistas Thymeleaf/HTML". El sistema usa **JSP + JSTL** (no Thymeleaf). Reemplazar por "vistas JSP + JSTL".
-- **Sección 8, filas 8 y 12:** dicen "Eliminar género" y "Eliminar / inhabilitar sala", pero la regla RN-05 establece bajas lógicas. Usar "Desactivar (baja lógica)", como en la sección 7.
-- **Portada:** el encabezado "5. ESTRUCTURA DEL PROYECTO" aparece antes del Resumen; revisar la numeración.
