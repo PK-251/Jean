@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TicketCine | Comprar · Super Mario Bros</title>
+    <meta name="description" content="Compra tus entradas y recibe tu número de turno de ingreso.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+<header class="site-header">
+    <a class="site-brand" href="index.html" aria-label="Ir al inicio de TicketCine">
+        <span class="brand-ticket">CA</span>
+        <span><strong>Cine Amazonas</strong><small>TicketCine · Iquitos</small></span>
+    </a>
+    <nav class="main-nav" aria-label="Navegación principal"><a href="index.html">Inicio</a><a href="cartelera.html" class="active" aria-current="page">Cartelera</a><a href="index.html#promociones">Promociones</a><a href="mis-tickets.html">Mis tickets</a></nav>
+    <a class="btn btn-sm header-cta" href="cartelera.html">Comprar entradas</a>
+</header>
+<main class="page page-narrow">
+    <a class="back-link" href="cartelera.html">← Volver a cartelera</a>
+    <p class="eyebrow">Compra tu entrada</p>
+    <ol class="stepper"><li class="done">1. Función</li><li class="current">2. Cantidad y datos</li><li>3. Ticket</li></ol>
+    <div class="function-summary">
+        <div><h2>Super Mario Bros</h2><p>Sala 2 · Hoy · 2:00 PM</p></div>
+        <div class="price-tag">S/ 12.00<small>por entrada</small></div>
+    </div>
+    <form class="panel compra-form" action="mis-tickets.html" method="get">
+        <fieldset class="field qty-radios">
+            <legend>Cantidad de entradas <small>(máximo 10 · 45 disponibles)</small></legend>
+            <div class="qty-options"><input type="radio" name="cantidad" id="c1" value="1" checked><label for="c1">1</label><input type="radio" name="cantidad" id="c2" value="2"><label for="c2">2</label><input type="radio" name="cantidad" id="c3" value="3"><label for="c3">3</label><input type="radio" name="cantidad" id="c4" value="4"><label for="c4">4</label><input type="radio" name="cantidad" id="c5" value="5"><label for="c5">5</label><input type="radio" name="cantidad" id="c6" value="6"><label for="c6">6</label><input type="radio" name="cantidad" id="c7" value="7"><label for="c7">7</label><input type="radio" name="cantidad" id="c8" value="8"><label for="c8">8</label><input type="radio" name="cantidad" id="c9" value="9"><label for="c9">9</label><input type="radio" name="cantidad" id="c10" value="10"><label for="c10">10</label></div>
+        </fieldset>
+        <div class="summary-row total"><span>Total</span><span class="totales"><strong class="t t1">S/ 12.00</strong><strong class="t t2">S/ 24.00</strong><strong class="t t3">S/ 36.00</strong><strong class="t t4">S/ 48.00</strong><strong class="t t5">S/ 60.00</strong><strong class="t t6">S/ 72.00</strong><strong class="t t7">S/ 84.00</strong><strong class="t t8">S/ 96.00</strong><strong class="t t9">S/ 108.00</strong><strong class="t t10">S/ 120.00</strong></span></div>
+        <div class="field"><label for="nombre">Nombre completo</label><input id="nombre" name="nombre" required minlength="3" autocomplete="name"><small class="hint">Mínimo 3 caracteres.</small></div>
+        <div class="field"><label for="correo">Correo electrónico</label><input id="correo" name="correo" type="email" required autocomplete="email"><small class="hint">Ejemplo: nombre@correo.com</small></div>
+        <p class="note">No eliges asiento. Cada entrada recibe un <strong>número de turno</strong> según el orden de compra: el día de la función ingresas a la sala en ese orden y te sientas donde prefieras. Compra de demostración: no se procesan pagos.</p>
+        <div class="actions"><a class="btn btn-ghost" href="cartelera.html">Cancelar</a><button class="btn" type="submit">Confirmar compra</button></div>
+    </form>
+</main>
+<footer>
+    <strong>Cine Amazonas</strong><span>TicketCine · Sistema de venta de entradas</span><span>Iquitos, Perú</span><span>© 2026</span>
+</footer>
+</body>
+</html>

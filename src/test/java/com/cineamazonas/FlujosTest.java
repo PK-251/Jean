@@ -145,6 +145,10 @@ class FlujosTest {
         assertEquals(200, panel.getResponse().getStatus());
         assertEquals("admin", panel.getModelAndView().getViewName());
         assertEquals(3, ((List<?>) panel.getModelAndView().getModel().get("salas")).size());
+        Map<?, ?> metricas = (Map<?, ?>) panel.getModelAndView().getModel().get("metricas");
+        assertEquals(6L, ((Number) metricas.get("funcionesHoy")).longValue());
+        assertEquals(3L, ((Number) metricas.get("salasHoy")).longValue());
+        assertEquals(7, ((List<?>) panel.getModelAndView().getModel().get("ventasSemana")).size());
     }
 
     @Test

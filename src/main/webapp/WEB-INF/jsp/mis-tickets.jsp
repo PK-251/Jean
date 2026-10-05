@@ -5,6 +5,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cine Amazonas - Mis Tickets</title>
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/cartelera.css">

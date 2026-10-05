@@ -78,7 +78,7 @@ El código sigue la arquitectura en capas vista en clase: **Controller → Servi
 | --- | --- | --- | --- |
 | Controller | `@Controller` | Recibe la petición (`@GetMapping`, `@PostMapping`, `@RequestParam`), llama al servicio y devuelve la vista con `Model.addAttribute` o un `redirect:`. No contiene SQL. | `AuthController`, `CarteleraController`, `NavegacionController`, `AdminController` |
 | Service | `@Service` | Reglas de negocio: validar login y registro, validar la cantidad de entradas, calcular el total y guardar la compra completa en una transacción. | `AuthService`, `CarteleraService`, `CompraService`, `TicketService`, `AdminService` |
-| Repository | `@Repository` | Único lugar con SQL; lee y escribe en H2. | `UsuarioRepository`, `CarteleraRepository`, `TicketRepository` |
+| Repository | `@Repository` | Único lugar con SQL; lee y escribe en H2. | `UsuarioRepository`, `CarteleraRepository`, `TicketRepository`, `DashboardRepository` |
 
 - `CineAmazonasApplication.java`: arranque de Spring.
 - Flujo de una compra: `POST /comprar` en `CarteleraController` → `CompraService.registrarCompra` → `TicketRepository`. El controlador nunca llama a un repositorio directamente.
@@ -92,7 +92,7 @@ La lógica utiliza tipos primitivos (`int`, `long`, `boolean`), variables, las i
 
 El login, el registro, los catálogos y las compras trabajan desde Spring y H2. La marca, el logo con iniciales CA, el nombre de la aplicación, los paquetes Java y el WAR se corresponden con Cine Amazonas.
 
-Los botones de crear/editar/desactivar catálogos, recuperar contraseña y enviar contacto siguen sin implementación. Los indicadores y gráficos del dashboard continúan siendo ejemplos visuales, no estadísticas reales; la tabla de funciones sí muestra la ocupación leída desde H2. No hay una pasarela de pago ni un flujo de cancelación de compras.
+Los botones de crear/editar/desactivar catálogos, recuperar contraseña y enviar contacto siguen sin implementación. Las 5 métricas puntuales del dashboard (ventas del día, cupos de la próxima función, funciones activas hoy, usuarios registrados y película más vendida del mes) y el gráfico de ventas diarias de la semana se leen desde H2 (`DashboardRepository`). Los otros cuatro gráficos siguen siendo referenciales y así se indica en pantalla. No hay una pasarela de pago ni un flujo de cancelación de compras.
 
 ## Verificar
 
@@ -101,3 +101,9 @@ Los botones de crear/editar/desactivar catálogos, recuperar contraseña y envia
 ```
 
 Las pruebas usan bases H2 en memoria independientes; no alteran la base de la aplicación. Comprueban registro, validaciones, credenciales, separación de roles, sesiones, formularios, cantidad y turnos de las entradas, aforo, compras con cuenta y como invitado, reenvíos y privacidad de tickets y comprobantes.
+
+## MVP estático (HTML + CSS) y documentación
+
+La carpeta `mvp/` contiene un prototipo navegable de la parte pública (landing, cartelera, compra y mis tickets) hecho solo con HTML y CSS, sin JavaScript. Ábrelo con doble clic en `mvp/index.html` o publícalo en Vercel: importa el repositorio en vercel.com, elige el preset **Other** y pulsa **Deploy**; `vercel.json` publica la carpeta `mvp/` sin compilar nada.
+
+La carpeta `docs/` contiene las secciones complementarias del informe (landing, storyboard, MVP, diagrama de arquitectura, metodología y conclusiones) en `secciones-faltantes.md` y en `TicketCine-secciones-faltantes.docx`, con las capturas en `docs/img/`.

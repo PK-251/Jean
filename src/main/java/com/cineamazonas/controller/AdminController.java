@@ -20,6 +20,8 @@ public class AdminController {
         if (sesion.getAttribute("usuarioId") == null || !"ADMIN".equals(sesion.getAttribute("rol"))) {
             return "redirect:/admin/login";
         }
+        modelo.addAttribute("metricas", adminService.metricas());
+        modelo.addAttribute("ventasSemana", adminService.ventasSemana());
         modelo.addAttribute("peliculas", adminService.peliculas());
         modelo.addAttribute("generos", adminService.generos());
         modelo.addAttribute("salas", adminService.salas());

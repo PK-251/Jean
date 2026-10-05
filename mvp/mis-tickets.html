@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TicketCine | Mis tickets</title>
+    <meta name="description" content="Tus tickets electrónicos con número de turno de ingreso.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+<header class="site-header">
+    <a class="site-brand" href="index.html" aria-label="Ir al inicio de TicketCine">
+        <span class="brand-ticket">CA</span>
+        <span><strong>Cine Amazonas</strong><small>TicketCine · Iquitos</small></span>
+    </a>
+    <nav class="main-nav" aria-label="Navegación principal"><a href="index.html">Inicio</a><a href="cartelera.html">Cartelera</a><a href="index.html#promociones">Promociones</a><a href="mis-tickets.html" class="active" aria-current="page">Mis tickets</a></nav>
+    <a class="btn btn-sm header-cta" href="cartelera.html">Comprar entradas</a>
+</header>
+<main class="page">
+    <section class="page-head">
+        <p class="eyebrow">Tickets electrónicos</p>
+        <h1>Mis tickets</h1>
+        <p>Muestra el número de turno en la entrada de la sala. Ingresas en ese orden y eliges tu asiento libremente.</p>
+    </section>
+    <p class="alert ok" role="status">¡Compra registrada! Código <strong>K7M2QX</strong> · 2 entradas · Total S/ 30.00.</p>
+    <ol class="stepper"><li class="done">1. Función</li><li class="done">2. Cantidad y datos</li><li class="current">3. Ticket</li></ol>
+    <div class="tickets">
+        <article class="ticket"><div class="ticket-top"><small>Cine Amazonas · Ticket electrónico</small><h3>Avatar: Fuego y Ceniza</h3></div>
+            <div class="ticket-body"><p>Sala 1 · 7:00 PM</p><p>Hoy · S/ 15.00</p><p>Cliente Demo</p><div class="ticket-turno"><strong>63</strong><small>Turno</small></div></div>
+            <div class="ticket-code">K7M2QX-1</div></article>
+        <article class="ticket"><div class="ticket-top"><small>Cine Amazonas · Ticket electrónico</small><h3>Avatar: Fuego y Ceniza</h3></div>
+            <div class="ticket-body"><p>Sala 1 · 7:00 PM</p><p>Hoy · S/ 15.00</p><p>Cliente Demo</p><div class="ticket-turno"><strong>64</strong><small>Turno</small></div></div>
+            <div class="ticket-code">K7M2QX-2</div></article>
+        <article class="ticket"><div class="ticket-top"><small>Cine Amazonas · Ticket electrónico</small><h3>Super Mario Bros</h3></div>
+            <div class="ticket-body"><p>Sala 2 · 5:00 PM</p><p>Hoy · S/ 12.00</p><p>Cliente Demo</p><div class="ticket-turno"><strong>42</strong><small>Turno</small></div></div>
+            <div class="ticket-code">P3H9ZD-1</div></article>
+    </div>
+    <p class="note">MVP estático (HTML + CSS): esta pantalla muestra tickets de ejemplo. En el sistema completo (Spring Boot + H2) los tickets se guardan en la base de datos y el turno se calcula en el servidor.</p>
+    <div class="actions"><a class="btn btn-ghost" href="index.html">Volver al inicio</a><a class="btn" href="cartelera.html">Comprar más entradas</a></div>
+</main>
+<footer>
+    <strong>Cine Amazonas</strong><span>TicketCine · Sistema de venta de entradas</span><span>Iquitos, Perú</span><span>© 2026</span>
+</footer>
+</body>
+</html>

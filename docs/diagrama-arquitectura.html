@@ -1,0 +1,54 @@
+<!doctype html><html><head><meta charset="utf-8"><style>body{margin:0;background:#fff;font-family:Arial,sans-serif}</style></head><body>
+<svg id="d" xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" font-family="Arial">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1c1620"/></marker></defs>
+<text x="600" y="38" text-anchor="middle" font-size="24" font-weight="700" fill="#1c1620">Arquitectura de TicketCine (Cine Amazonas)</text>
+<text x="600" y="62" text-anchor="middle" font-size="14" fill="#6b6168">Arquitectura en capas · Spring Boot 3.5 · Java 21 · JSP + JSTL · H2 (JdbcTemplate)</text>
+<!-- clientes -->
+<rect x="40" y="95" width="250" height="110" rx="12" fill="#f6f4f1" stroke="#1c1620"/>
+<text x="165" y="125" text-anchor="middle" font-size="16" font-weight="700">Navegador del cliente</text>
+<text x="165" y="150" text-anchor="middle" font-size="13" fill="#6b6168">Cartelera · Compra · Mis tickets</text>
+<text x="165" y="170" text-anchor="middle" font-size="13" fill="#6b6168">Login / Registro · Invitado</text>
+<text x="165" y="190" text-anchor="middle" font-size="12" fill="#9a5d08">Rol USER</text>
+<rect x="910" y="95" width="250" height="110" rx="12" fill="#f6f4f1" stroke="#1c1620"/>
+<text x="1035" y="125" text-anchor="middle" font-size="16" font-weight="700">Navegador del admin</text>
+<text x="1035" y="150" text-anchor="middle" font-size="13" fill="#6b6168">Panel administrativo</text>
+<text x="1035" y="170" text-anchor="middle" font-size="13" fill="#6b6168">Dashboard de métricas</text>
+<text x="1035" y="190" text-anchor="middle" font-size="12" fill="#9a5d08">Rol ADMIN</text>
+<rect x="475" y="95" width="250" height="110" rx="12" fill="#fff" stroke="#e8a33d" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="600" y="125" text-anchor="middle" font-size="16" font-weight="700">MVP estático (Vercel)</text>
+<text x="600" y="150" text-anchor="middle" font-size="13" fill="#6b6168">HTML + CSS · sin backend</text>
+<text x="600" y="170" text-anchor="middle" font-size="13" fill="#6b6168">Landing · Cartelera · Compra</text>
+<text x="600" y="190" text-anchor="middle" font-size="12" fill="#9a5d08">Prototipo navegable</text>
+<!-- server box -->
+<rect x="40" y="245" width="1120" height="420" rx="16" fill="none" stroke="#c24e4e" stroke-width="2"/>
+<text x="190" y="272" font-size="14" font-weight="700" fill="#c24e4e">Servidor · Spring Boot con Tomcat embebido (cine-amazonas.war)</text>
+<line x1="165" y1="205" x2="165" y2="300" stroke="#1c1620" stroke-width="2" marker-end="url(#a)"/>
+<text x="175" y="232" font-size="12" fill="#6b6168">HTTP GET/POST</text>
+<line x1="1035" y1="205" x2="1035" y2="300" stroke="#1c1620" stroke-width="2" marker-end="url(#a)"/>
+<text x="915" y="232" font-size="12" fill="#6b6168">HTTP GET/POST</text>
+<!-- vista -->
+<rect x="60" y="300" width="1080" height="70" rx="10" fill="#fdf3e4" stroke="#e8a33d"/>
+<text x="80" y="328" font-size="15" font-weight="700">Vista (presentación)</text>
+<text x="80" y="352" font-size="13" fill="#6b6168">JSP + JSTL: cartelera, sala, confirmar-compra, compra, mis-tickets, login, admin-login, admin, publicidad, contacto · CSS estático</text>
+<!-- controller -->
+<rect x="60" y="390" width="1080" height="70" rx="10" fill="#fff" stroke="#1c1620"/>
+<text x="80" y="418" font-size="15" font-weight="700">Controller  @Controller</text>
+<text x="80" y="442" font-size="13" fill="#6b6168">AuthController · CarteleraController · NavegacionController · AdminController — reciben la petición, validan sesión/rol/CSRF y eligen la vista</text>
+<!-- service -->
+<rect x="60" y="480" width="1080" height="70" rx="10" fill="#fff" stroke="#1c1620"/>
+<text x="80" y="508" font-size="15" font-weight="700">Service  @Service  (reglas de negocio · @Transactional)</text>
+<text x="80" y="532" font-size="13" fill="#6b6168">AuthService (PBKDF2) · CarteleraService · CompraService (aforo, total, turnos) · TicketService · AdminService (métricas)</text>
+<!-- repo -->
+<rect x="60" y="570" width="1080" height="70" rx="10" fill="#fff" stroke="#1c1620"/>
+<text x="80" y="598" font-size="15" font-weight="700">Repository  @Repository  (único lugar con SQL · JdbcTemplate)</text>
+<text x="80" y="622" font-size="13" fill="#6b6168">UsuarioRepository · CarteleraRepository · TicketRepository · DashboardRepository</text>
+<g stroke="#1c1620" stroke-width="2" marker-end="url(#a)"><line x1="600" y1="370" x2="600" y2="388"/><line x1="600" y1="460" x2="600" y2="478"/><line x1="600" y1="550" x2="600" y2="568"/><line x1="600" y1="640" x2="600" y2="688"/></g>
+<!-- db -->
+<rect x="430" y="698" width="340" height="44" fill="#f6f4f1" stroke="none"/>
+<line x1="430" y1="698" x2="430" y2="742" stroke="#1c1620"/><line x1="770" y1="698" x2="770" y2="742" stroke="#1c1620"/>
+<ellipse cx="600" cy="698" rx="170" ry="14" fill="#f6f4f1" stroke="#1c1620"/>
+<path d="M430 742 A170 14 0 0 0 770 742" fill="#f6f4f1" stroke="#1c1620"/>
+<text x="600" y="732" text-anchor="middle" font-size="14" font-weight="700">Base de datos H2 (archivo)</text>
+<text x="830" y="715" font-size="12" fill="#6b6168">usuarios · generos · peliculas</text>
+<text x="830" y="733" font-size="12" fill="#6b6168">salas · funciones · compras · tickets</text>
+</svg></body></html>

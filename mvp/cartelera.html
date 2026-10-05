@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TicketCine | Cartelera</title>
+    <meta name="description" content="Cartelera de hoy en Cine Amazonas: elige tu función y compra tu entrada.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+<header class="site-header">
+    <a class="site-brand" href="index.html" aria-label="Ir al inicio de TicketCine">
+        <span class="brand-ticket">CA</span>
+        <span><strong>Cine Amazonas</strong><small>TicketCine · Iquitos</small></span>
+    </a>
+    <nav class="main-nav" aria-label="Navegación principal"><a href="index.html">Inicio</a><a href="cartelera.html" class="active" aria-current="page">Cartelera</a><a href="index.html#promociones">Promociones</a><a href="mis-tickets.html">Mis tickets</a></nav>
+    <a class="btn btn-sm header-cta" href="cartelera.html">Comprar entradas</a>
+</header>
+<main class="page" id="todas">
+    <section class="page-head">
+        <p class="eyebrow">Cine Amazonas · Iquitos</p>
+        <h1>Cartelera</h1>
+        <p>Películas y funciones de hoy. Elige un horario para comprar tu entrada.</p>
+    </section>
+    <nav class="toolbar" aria-label="Filtrar por género"><a class="chip" href="#todas" aria-current="true">Todas</a><a class="chip" href="#p-avatar">Ciencia ficción</a><a class="chip" href="#p-mario">Animación</a><a class="chip" href="#p-spider">Acción</a></nav>
+    <section class="movie-grid" aria-label="Películas disponibles">
+        <article class="movie-card" id="p-avatar">
+            <div class="movie-poster p-avatar" aria-hidden="true"><span>AVATAR</span><small>Fuego y ceniza</small></div>
+            <div class="movie-content">
+                <div class="movie-heading"><h2>Avatar: Fuego y Ceniza</h2><span class="rating">+14</span></div>
+                <p class="movie-meta">Ciencia ficción · 190 min</p>
+                <p class="synopsis">Una nueva aventura en el mundo de Pandora.</p>
+                <h3>Funciones de hoy</h3>
+                <div class="showtime"><span>Sala 1</span><strong>3:00 PM</strong><span>S/ 15.00</span><span class="cupos">46 de 80 entradas disponibles<span class="cupos-bar"><i style="width:58%"></i></span></span><a class="btn" href="compra-1.html">Comprar entrada</a></div>
+                <div class="showtime"><span>Sala 1</span><strong>7:00 PM</strong><span>S/ 15.00</span><span class="cupos">18 de 80 entradas disponibles<span class="cupos-bar"><i style="width:22%"></i></span></span><a class="btn" href="compra-2.html">Comprar entrada</a></div>
+            </div>
+        </article>
+        <article class="movie-card" id="p-mario">
+            <div class="movie-poster p-mario" aria-hidden="true"><span>SUPER</span><small>Mario Bros.</small></div>
+            <div class="movie-content">
+                <div class="movie-heading"><h2>Super Mario Bros</h2><span class="rating all">ATP</span></div>
+                <p class="movie-meta">Animación · 92 min</p>
+                <p class="synopsis">Mario y Luigi viven una gran aventura para salvar el Reino Champiñón.</p>
+                <h3>Funciones de hoy</h3>
+                <div class="showtime"><span>Sala 2</span><strong>2:00 PM</strong><span>S/ 12.00</span><span class="cupos">45 de 65 entradas disponibles<span class="cupos-bar"><i style="width:69%"></i></span></span><a class="btn" href="compra-3.html">Comprar entrada</a></div>
+                <div class="showtime"><span>Sala 2</span><strong>5:00 PM</strong><span>S/ 12.00</span><span class="cupos">24 de 65 entradas disponibles<span class="cupos-bar"><i style="width:37%"></i></span></span><a class="btn" href="compra-4.html">Comprar entrada</a></div>
+            </div>
+        </article>
+        <article class="movie-card" id="p-spider">
+            <div class="movie-poster p-spider" aria-hidden="true"><span>SPIDER</span><small>Man</small></div>
+            <div class="movie-content">
+                <div class="movie-heading"><h2>Spider-Man</h2><span class="rating">+14</span></div>
+                <p class="movie-meta">Acción · 148 min</p>
+                <p class="synopsis">Spider-Man deberá enfrentarse a nuevos enemigos para proteger su ciudad.</p>
+                <h3>Funciones de hoy</h3>
+                <div class="showtime"><span>Sala 3</span><strong>4:00 PM</strong><span>S/ 15.00</span><span class="cupos">35 de 90 entradas disponibles<span class="cupos-bar"><i style="width:39%"></i></span></span><a class="btn" href="compra-5.html">Comprar entrada</a></div>
+                <div class="showtime"><span>Sala 3</span><strong>8:00 PM</strong><span>S/ 15.00</span><span class="cupos agotado">Entradas agotadas<span class="cupos-bar"><i style="width:0%"></i></span></span><span class="btn" aria-disabled="true">Agotado</span></div>
+            </div>
+        </article>
+    </section>
+</main>
+<footer>
+    <strong>Cine Amazonas</strong><span>TicketCine · Sistema de venta de entradas</span><span>Iquitos, Perú</span><span>© 2026</span>
+</footer>
+</body>
+</html>

@@ -43,32 +43,32 @@
             <span>Actualización por transacción</span>
         </div>
         <div class="metrics-grid">
-            <article><small>Ventas del día</small><strong>S/ 684.00</strong><span>42 entradas</span></article>
-            <article><small>Cupos próxima función</small><strong>38</strong><span>Avatar · 7:00 PM</span></article>
-            <article><small>Funciones activas hoy</small><strong>6</strong><span>3 salas operativas</span></article>
-            <article><small>Usuarios registrados</small><strong>248</strong><span>Total acumulado</span></article>
-            <article><small>Más vendida del mes</small><strong>Avatar</strong><span>186 entradas</span></article>
+            <article><small>Ventas del día</small><strong>S/ <c:out value="${metricas.ventasHoy}"/></strong><span><c:out value="${metricas.entradasHoy}"/> entradas</span></article>
+            <article><small>Cupos próxima función</small><strong><c:out value="${metricas.cuposProxima}"/></strong><span><c:out value="${metricas.proximaFuncion}"/></span></article>
+            <article><small>Funciones activas hoy</small><strong><c:out value="${metricas.funcionesHoy}"/></strong><span><c:out value="${metricas.salasHoy}"/> salas operativas</span></article>
+            <article><small>Usuarios registrados</small><strong><c:out value="${metricas.usuarios}"/></strong><span>Cuentas activas</span></article>
+            <article><small>Más vendida del mes</small><strong><c:out value="${metricas.masVendida}"/></strong><span><c:out value="${metricas.masVendidaEntradas}"/> entradas</span></article>
         </div>
 
         <div class="charts-grid">
             <article class="chart-card">
                 <h3>Ventas diarias de la semana</h3>
                 <div class="bar-chart">
-                    <span style="--value:48%"><b>Lun</b></span><span style="--value:62%"><b>Mar</b></span><span style="--value:55%"><b>Mié</b></span><span style="--value:78%"><b>Jue</b></span><span style="--value:91%"><b>Vie</b></span><span style="--value:100%"><b>Sáb</b></span><span style="--value:84%"><b>Dom</b></span>
+                    <c:forEach var="dia" items="${ventasSemana}"><span style="--value:${dia.porcentaje}%" title="S/ ${dia.total}"><b><c:out value="${dia.nombre}"/></b></span></c:forEach>
                 </div>
             </article>
             <article class="chart-card">
-                <h3>Tickets vendidos por semana</h3>
+                <h3>Tickets vendidos por semana <small>(referencial)</small></h3>
                 <div class="progress-list"><p><span>Semana 1</span><b style="--value:72%"></b><strong>148</strong></p><p><span>Semana 2</span><b style="--value:88%"></b><strong>181</strong></p><p><span>Semana 3</span><b style="--value:64%"></b><strong>132</strong></p><p><span>Semana 4</span><b style="--value:93%"></b><strong>192</strong></p></div>
             </article>
             <article class="chart-card compact-chart">
-                <h3>Ocupación promedio mensual</h3><strong>74%</strong><p>Promedio de las salas</p>
+                <h3>Ocupación promedio mensual <small>(referencial)</small></h3><strong>74%</strong><p>Promedio de las salas</p>
             </article>
             <article class="chart-card compact-chart">
-                <h3>Funciones por semana</h3><strong>38</strong><p>Programadas este mes</p>
+                <h3>Funciones por semana <small>(referencial)</small></h3><strong>38</strong><p>Programadas este mes</p>
             </article>
             <article class="chart-card compact-chart">
-                <h3>Ingresos por género</h3><strong>S/ 3,420</strong><p>Acción lidera este mes</p>
+                <h3>Ingresos por género <small>(referencial)</small></h3><strong>S/ 3,420</strong><p>Acción lidera este mes</p>
             </article>
         </div>
     </section>
